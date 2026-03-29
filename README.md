@@ -8,7 +8,7 @@ Documentado como caso de estudio para portafolio profesional y maestría en DevO
 | # | Negocio | Giro | Herramienta | Estado |
 |---|---------|------|-------------|--------|
 | 1 | Papá — Hidráulicos | Empaques, bombas, mangueras, refacciones | Google Sites | 🔄 En progreso |
-| 2 | Novia — Personalizados | Artículos personalizados | Tiendanube | ⏳ Pendiente |
+| 2 |  Personalizados | Artículos personalizados | Tiendanube | ⏳ Pendiente |
 | 3 | Mini Dogs Catering | Snack catering para eventos | Google Sites + Make.com | ⏳ Pendiente |
 
 ## Estructura del repo
