@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistemas Hidráulicos Monterrey — Empaques, Bombas y Refacciones</title>
+  <meta name="description" content="Más de 15 años distribuyendo componentes hidráulicos en Monterrey. Empaques, bombas, mangueras, conexiones y refacciones para industria y talleres." />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* ── Tokens ── */
+    :root {
+      --azul:     #0a2463;
+      --azul-mid: #1e4d8c;
+      --naranja:  #e85d04;
+      --gris:     #f4f6f9;
+      --texto:    #1a1a2e;
+      --suave:    #5a6a80;
+    }
+
+    /* ── Utilidades ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .btn {
+      display: inline-block;
+      padding: .85rem 2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+    .btn-primary   { background: var(--naranja); color: #fff; }
+    .btn-secondary { background: #fff; color: var(--azul); border: 2px solid var(--azul); }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--azul);
+      padding: .9rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.3);
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.15rem;
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+    .nav-logo span { color: var(--naranja); }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--naranja); }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-mid) 60%, #2563a8 100%);
+      color: #fff;
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      right: -80px; bottom: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.04);
+    }
+    .hero-content { max-width: 680px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(232,93,4,.9);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 700;
+      padding: .3rem .9rem;
+      border-radius: 20px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    #hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    #hero h1 span { color: var(--naranja); }
+    #hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── QUIÉNES SOMOS ── */
+    #quienes {
+      padding: 5rem 0;
+      background: #fff;
+    }
+    .section-label {
+      color: var(--naranja);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--azul);
+      margin-bottom: 1.25rem;
+    }
+    .quienes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .quienes-texto p {
+      color: var(--suave);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .stat-card {
+      background: var(--gris);
+      border-radius: 10px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      border-top: 4px solid var(--naranja);
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--azul);
+    }
+    .stat-desc {
+      font-size: .85rem;
+      color: var(--suave);
+      margin-top: .25rem;
+    }
+
+    @media (max-width: 700px) {
+      .quienes-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── PRODUCTOS ── */
+    #productos {
+      padding: 5rem 0;
+      background: var(--gris);
+    }
+    #productos .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .producto-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border-bottom: 4px solid var(--azul);
+      transition: box-shadow .2s;
+      position: relative;
+      overflow: hidden;
+      min-height: 260px;
+    }
+    .producto-card:hover {
+      box-shadow: 0 10px 28px rgba(0,0,0,.15);
+    }
+    .producto-icon {
+      width: 54px; height: 54px;
+      background: var(--azul);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+      font-size: 1.5rem;
+    }
+    .producto-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: .6rem;
+    }
+    .producto-card p {
+      font-size: .92rem;
+      color: var(--suave);
+      line-height: 1.6;
+    }
+
+    /* ── Foto preview (slide-up on hover) ── */
+    .foto-preview {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 100%;
+      background: linear-gradient(160deg, rgba(10,36,99,.92) 0%, rgba(10,36,99,.98) 100%);
+      transform: translateY(100%);
+      transition: transform .38s cubic-bezier(.4,0,.2,1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1.25rem 1.25rem;
+      gap: .9rem;
+    }
+    .producto-card:hover .foto-preview {
+      transform: translateY(0);
+    }
+    .foto-preview-label {
+      color: rgba(255,255,255,.95);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .foto-slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .5rem;
+      width: 100%;
+    }
+    /* Slot vacío — reemplazar con <img src="tu-foto.jpg"> cuando tengas fotos */
+    .foto-slot {
+      aspect-ratio: 1;
+      background: rgba(255,255,255,.08);
+      border: 1.5px dashed rgba(255,255,255,.25);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .25rem;
+      color: rgba(255,255,255,.45);
+      font-size: .65rem;
+      text-align: center;
+      line-height: 1.3;
+      overflow: hidden;
+    }
+    .foto-slot .slot-icon { font-size: 1.3rem; opacity: .6; }
+    /* Cuando agregues imágenes reales */
+    .foto-slot img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 7px;
+    }
+
+    /* ── POR QUÉ ELEGIRNOS ── */
+    #porque {
+      padding: 5rem 0;
+      background: var(--azul);
+      color: #fff;
+    }
+    #porque .section-header { text-align: center; margin-bottom: 2.5rem; }
+    #porque .section-label { color: var(--naranja); }
+    #porque .section-title { color: #fff; }
+    .porque-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .porque-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      gap: 1.1rem;
+      align-items: flex-start;
+      transition: background .2s;
+    }
+    .porque-card:hover { background: rgba(255,255,255,.13); }
+    .porque-check {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: var(--naranja);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      margin-top: .1rem;
+    }
+    .porque-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: .35rem;
+    }
+    .porque-card p {
+      font-size: .9rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.55;
+    }
+
+    /* ── CONTACTO ── */
+    #contacto {
+      padding: 5rem 0;
+      background: #fff;
+    }
+    #contacto .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contacto-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contacto-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .contacto-icono {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      background: var(--gris);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .contacto-item strong {
+      display: block;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--suave);
+      margin-bottom: .15rem;
+    }
+    .contacto-item a, .contacto-item span {
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .contacto-item a:hover { color: var(--naranja); }
+
+    .whatsapp-cta {
+      background: #25d366;
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.75rem;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: background .2s, transform .15s;
+      margin-top: .5rem;
+    }
+    .whatsapp-cta:hover { background: #1fba59; transform: translateY(-2px); }
+    .whatsapp-cta .wa-icon { font-size: 2rem; margin-bottom: .5rem; }
+    .whatsapp-cta strong { display: block; font-size: 1.15rem; margin-bottom: .2rem; }
+    .whatsapp-cta span { font-size: .9rem; opacity: .9; }
+
+    .mapa-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,.1);
+    }
+    .mapa-wrap iframe { display: block; width: 100%; height: 320px; border: 0; }
+
+    @media (max-width: 700px) {
+      .contacto-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d1b38;
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 1.75rem 1rem;
+      font-size: .87rem;
+    }
+    footer strong { color: #fff; }
+
+    /* ── WhatsApp flotante ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 58px; height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,.25);
+      text-decoration: none;
+      z-index: 200;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(0,0,0,.3); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <a href="#hero" class="nav-logo">Hidráulicos <span>Monterrey</span></a>
+      <ul class="nav-links">
+        <li><a href="#quienes">Nosotros</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#porque">¿Por qué nosotros?</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">+15 años en Monterrey</span>
+        <h1>Sistemas Hidráulicos <span>Monterrey</span></h1>
+        <p>Empaques, bombas, mangueras y refacciones para industria y talleres.<br>
+           Entrega rápida en Monterrey y área metropolitana.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5218117388852" class="btn btn-primary" target="_blank" rel="noopener">
+            Contáctanos por WhatsApp →
+          </a>
+          <a href="#productos" class="btn btn-secondary">Ver productos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes">
+    <div class="container">
+      <div class="quienes-grid">
+        <div class="quienes-texto">
+          <p class="section-label">Quiénes somos</p>
+          <h2 class="section-title">Experiencia regiomontana en cada componente</h2>
+          <p>Somos una empresa regiomontana con más de 15 años distribuyendo y suministrando
+             componentes hidráulicos de calidad. Atendemos tanto a empresas industriales como
+             a talleres y técnicos independientes.</p>
+          <br>
+          <p>Nuestro compromiso es la disponibilidad, el buen precio y el servicio directo
+             sin intermediarios.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num">+15</div>
+            <div class="stat-desc">Años en el mercado</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">B2B</div>
+            <div class="stat-desc">Empresas industriales</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">MTY</div>
+            <div class="stat-desc">Entrega local y rápida</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">B2C</div>
+            <div class="stat-desc">Talleres y técnicos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Lo que ofrecemos</p>
+        <h2 class="section-title">Nuestros productos</h2>
+      </div>
+      <div class="productos-grid">
+
+        <div class="producto-card">
+          <div class="producto-icon">⚙️</div>
+          <h3>Empaques hidráulicos</h3>
+          <p>Sellos, empaques y kits para cilindros y sistemas hidráulicos.
+             Amplia variedad de medidas y materiales.</p>
+          <!-- PREVIEW FOTOS — reemplaza cada .foto-slot con <img src="foto.jpg" alt=""> -->
+          <div class="foto-preview">
+            <span class="foto-preview-label">📷 Galería — Empaques</span>
+            <div class="foto-slots">
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 1</div>
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 2</div>
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 3</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <div class="producto-icon">🔧</div>
+          <h3>Bombas y chupones</h3>
+          <p>Bombas de engranaje, pistón y centrífugas para aplicaciones
+             industriales y comerciales.</p>
+          <div class="foto-preview">
+            <span class="foto-preview-label">📷 Galería — Bombas</span>
+            <div class="foto-slots">
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 1</div>
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 2</div>
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 3</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <div class="producto-icon">🔩</div>
+          <h3>Mangueras y conexiones</h3>
+          <p>Manguera hidráulica de alta presión, fitting y adaptadores
+             para todo tipo de sistemas.</p>
+          <div class="foto-preview">
+            <span class="foto-preview-label">📷 Galería — Mangueras</span>
+            <div class="foto-slots">
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 1</div>
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 2</div>
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 3</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="producto-card">
+          <div class="producto-icon">🛠️</div>
+          <h3>Refacciones en general</h3>
+          <p>Amplio inventario de refacciones para mantenimiento hidráulico.
+             Atención a empresas y talleres.</p>
+          <div class="foto-preview">
+            <span class="foto-preview-label">📷 Galería — Refacciones</span>
+            <div class="foto-slots">
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 1</div>
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 2</div>
+              <div class="foto-slot"><span class="slot-icon">📷</span>Foto 3</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ ELEGIRNOS -->
+  <section id="porque">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Nuestra ventaja</p>
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+      </div>
+      <div class="porque-grid">
+
+        <div class="porque-card">
+          <div class="porque-check">✓</div>
+          <div>
+            <h3>+15 años en el mercado</h3>
+            <p>Experiencia que respalda cada venta. Conocemos los sistemas y las necesidades reales de la industria.</p>
+          </div>
+        </div>
+
+        <div class="porque-card">
+          <div class="porque-check">✓</div>
+          <div>
+            <h3>Monterrey y área metro</h3>
+            <p>Entrega rápida, atención local y directa. Sin demoras ni intermediarios lejanos.</p>
+          </div>
+        </div>
+
+        <div class="porque-card">
+          <div class="porque-check">✓</div>
+          <div>
+            <h3>Industria y talleres</h3>
+            <p>Atendemos clientes B2B y B2C. Conocemos las necesidades de empresas grandes y técnicos independientes.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Estamos aquí</p>
+        <h2 class="section-title">Contáctanos</h2>
+      </div>
+      <div class="contacto-grid">
+
+        <div class="contacto-info">
+
+          <div class="contacto-item">
+            <div class="contacto-icono">📞</div>
+            <div>
+              <strong>Teléfono</strong>
+              <a href="tel:8117388852">811 738 8852</a>
+            </div>
+          </div>
+
+          <div class="contacto-item">
+            <div class="contacto-icono">✉️</div>
+            <div>
+              <strong>Correo</strong>
+              <a href="mailto:armando__ventas@hotmail.com">armando__ventas@hotmail.com</a>
+            </div>
+          </div>
+
+          <div class="contacto-item">
+            <div class="contacto-icono">📍</div>
+            <div>
+              <strong>Ubicación</strong>
+              <span>Monterrey, Nuevo León</span>
+            </div>
+          </div>
+
+          <a href="https://wa.me/5218117388852" class="whatsapp-cta" target="_blank" rel="noopener">
+            <div class="wa-icon">💬</div>
+            <strong>Escríbenos por WhatsApp</strong>
+            <span>Respuesta rápida · Cotiza ahora</span>
+          </a>
+
+        </div>
+
+        <div class="mapa-wrap">
+          <!-- Reemplaza el src con el embed de Google Maps de tu dirección exacta -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.3108309600498!2d-100.3429182252304!3d25.694130677394412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866295e7b22927ff%3A0xe0545ad6a213b774!2sC.%20Miguel%20Barrag%C3%A1n%202907%2C%20Tijerina%2C%2064460%20Monterrey%2C%20N.L.!5e0!3m2!1sen!2smx!4v1775080781342!5m2!1sen!2smx"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación Monterrey, Nuevo León">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Hidráulicos Monterrey</strong> — Más de 15 años en componentes hidráulicos</p>
+    <p style="margin-top:.4rem;">Monterrey, Nuevo León · <a href="tel:8117388852" style="color:rgba(255,255,255,.7)">811 738 8852</a></p>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/5218117388852" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    💬
+  </a>
+
+</body>
+</html>
