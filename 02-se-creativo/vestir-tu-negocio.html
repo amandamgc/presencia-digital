@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vestimos tu Negocio — Se Creativo Monterrey</title>
+  <meta name="description" content="Lonas, uniformes, menús y más para darle imagen profesional a tu negocio en Monterrey. Cotiza sin compromiso con Se Creativo." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    :root {
+      --negro:    #111318;
+      --oscuro:   #1e2028;
+      --amarillo: #f5a623;
+      --naranja:  #e8630a;
+      --gris:     #f5f5f7;
+      --suave:    #6b7280;
+      --blanco:   #ffffff;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    .btn {
+      display: inline-block;
+      padding: .9rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s, background .15s;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .btn-primary { background: var(--amarillo); color: var(--negro); }
+    .btn-primary:hover { background: #e09a1a; }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--negro);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-logo .logo-main { color: #fff; font-weight: 800; font-size: 1.2rem; letter-spacing: .02em; }
+    .nav-logo .logo-sub  { color: var(--amarillo); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .nav-cta {
+      background: var(--amarillo);
+      color: var(--negro);
+      padding: .55rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .nav-cta:hover { background: #e09a1a; }
+
+    /* ── HERO ── */
+    #hero {
+      background: var(--negro);
+      color: #fff;
+      padding: 5.5rem 0 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,.12) 0%, transparent 70%);
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(245,166,35,.15);
+      border: 1px solid rgba(245,166,35,.3);
+      color: var(--amarillo);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 20px;
+      margin-bottom: 1.4rem;
+    }
+    #hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1.1rem;
+      max-width: 700px;
+    }
+    #hero h1 span { color: var(--amarillo); }
+    #hero .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.72);
+      max-width: 540px;
+      margin-bottom: 2.2rem;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .hero-social {
+      color: rgba(255,255,255,.5);
+      font-size: .85rem;
+      margin-top: 2.5rem;
+    }
+    .hero-social a { color: var(--amarillo); text-decoration: none; }
+
+    /* ── CLIENTES / SOCIAL PROOF ── */
+    #proof {
+      background: #f9f9f9;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 1.5rem 0;
+    }
+    .proof-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .proof-label { font-size: .8rem; font-weight: 700; color: var(--suave); text-transform: uppercase; letter-spacing: .08em; }
+    .proof-items { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
+    .proof-item {
+      font-size: .9rem;
+      font-weight: 600;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .proof-item::before { content: '✓'; color: var(--amarillo); font-weight: 900; }
+
+    /* ── SERVICIOS ── */
+    #servicios {
+      padding: 5.5rem 0;
+      background: #fff;
+    }
+    .section-eyebrow {
+      color: var(--naranja);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--negro);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .section-sub { font-size: 1rem; color: var(--suave); max-width: 520px; }
+    #servicios .header { margin-bottom: 3rem; }
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .servicio-card {
+      border: 1.5px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 2rem 1.75rem;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      position: relative;
+    }
+    .servicio-card:hover {
+      border-color: var(--amarillo);
+      box-shadow: 0 8px 32px rgba(245,166,35,.12);
+      transform: translateY(-3px);
+    }
+    .servicio-card.destacado {
+      background: var(--negro);
+      border-color: var(--amarillo);
+      color: #fff;
+    }
+    .servicio-card.destacado .servicio-desc { color: rgba(255,255,255,.7); }
+    .servicio-badge {
+      display: inline-block;
+      background: var(--amarillo);
+      color: var(--negro);
+      font-size: .7rem;
+      font-weight: 800;
+      padding: .2rem .65rem;
+      border-radius: 20px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+    }
+    .servicio-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .servicio-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
+    .servicio-desc { font-size: .9rem; color: var(--suave); line-height: 1.6; }
+    .servicio-desde {
+      margin-top: 1.1rem;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--naranja);
+    }
+    .servicio-card.destacado .servicio-desde { color: var(--amarillo); }
+
+    /* ── CASO DE ÉXITO ── */
+    #caso {
+      padding: 5.5rem 0;
+      background: var(--gris);
+    }
+    .caso-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .caso-tag {
+      display: inline-block;
+      background: rgba(232,99,10,.12);
+      color: var(--naranja);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .3rem .8rem;
+      border-radius: 20px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .caso-texto p { color: var(--suave); font-size: 1rem; line-height: 1.75; margin-bottom: 1rem; }
+    .caso-lista { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin: 1.25rem 0 1.75rem; }
+    .caso-lista li {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-size: .95rem;
+      color: #333;
+    }
+    .caso-lista li::before {
+      content: '';
+      width: 22px; height: 22px;
+      background: var(--amarillo);
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .caso-visual {
+      background: var(--negro);
+      border-radius: 16px;
+      padding: 2.5rem;
+      color: #fff;
+    }
+    .caso-visual-title {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amarillo);
+      margin-bottom: 1.5rem;
+    }
+    .caso-items { display: flex; flex-direction: column; gap: 1rem; }
+    .caso-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,.06);
+      border-radius: 10px;
+      padding: .9rem 1rem;
+    }
+    .caso-item-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .caso-item-label { font-size: .9rem; font-weight: 600; }
+    .caso-item-desc  { font-size: .78rem; color: rgba(255,255,255,.55); margin-top: .1rem; }
+    .caso-total {
+      border-top: 1px solid rgba(255,255,255,.1);
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .caso-total span { font-size: .85rem; color: rgba(255,255,255,.6); }
+    .caso-total strong { font-size: 1rem; color: var(--amarillo); }
+
+    @media (max-width: 700px) {
+      .caso-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── PROCESO ── */
+    #proceso {
+      padding: 5.5rem 0;
+      background: #fff;
+    }
+    #proceso .header { text-align: center; margin-bottom: 3rem; }
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      counter-reset: paso;
+    }
+    .paso {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+    }
+    .paso-num {
+      width: 52px; height: 52px;
+      background: var(--negro);
+      color: var(--amarillo);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin: 0 auto 1.1rem;
+    }
+    .paso h3 { font-size: .97rem; font-weight: 700; margin-bottom: .5rem; color: var(--negro); }
+    .paso p  { font-size: .88rem; color: var(--suave); line-height: 1.6; }
+
+    /* ── CTA FINAL ── */
+    #cta {
+      background: var(--negro);
+      padding: 5rem 0;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,.1) 0%, transparent 65%);
+    }
+    #cta .section-eyebrow { margin-bottom: .75rem; }
+    #cta h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    #cta h2 span { color: var(--amarillo); }
+    #cta p { color: rgba(255,255,255,.65); font-size: 1rem; max-width: 480px; margin: 0 auto 2.5rem; }
+    .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    .wa-block {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      background: #25d366;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background .15s, transform .15s;
+    }
+    .wa-block:hover { background: #1fba59; transform: translateY(-2px); }
+    .wa-block .wa-icon { font-size: 1.4rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0b0e;
+      color: rgba(255,255,255,.45);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .85rem;
+    }
+    footer strong { color: rgba(255,255,255,.8); }
+    footer a { color: var(--amarillo); text-decoration: none; }
+
+    /* ── WhatsApp flotante ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 58px; height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,.3);
+      text-decoration: none;
+      z-index: 200;
+      transition: transform .2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-main">Se Creativo</span>
+        <span class="logo-sub">Monterrey · @secreativomx</span>
+      </a>
+      <a href="https://wa.me/528120978670?text=Hola%2C%20quiero%20cotizar%20imagen%20para%20mi%20negocio"
+         class="nav-cta" target="_blank" rel="noopener">
+        Cotizar ahora →
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <span class="hero-tag">🏪 Para negocios · Monterrey</span>
+      <h1>Haz que tu negocio<br><span>se vea profesional</span></h1>
+      <p class="hero-sub">
+        Lonas, uniformes, menús, vinil y todo lo que necesitas para tener
+        imagen de marca en tu local. Un solo proveedor, todo resuelto.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/528120978670?text=Hola%2C%20quiero%20cotizar%20imagen%20para%20mi%20negocio"
+           class="btn btn-primary" target="_blank" rel="noopener">
+          💬 Cotizar mi negocio
+        </a>
+        <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+      </div>
+      <p class="hero-social">
+        También nos encuentras en
+        <a href="https://www.instagram.com/secreativomx" target="_blank" rel="noopener">@secreativomx</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <div id="proof">
+    <div class="container">
+      <div class="proof-inner">
+        <span class="proof-label">Negocios que ya confían en nosotros</span>
+        <div class="proof-items">
+          <span class="proof-item">Taquerías</span>
+          <span class="proof-item">Restaurantes</span>
+          <span class="proof-item">Salones de belleza</span>
+          <span class="proof-item">Tiendas locales</span>
+          <span class="proof-item">Eventos empresariales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <div class="header">
+        <p class="section-eyebrow">Lo que hacemos</p>
+        <h2 class="section-title">Todo para vestir tu negocio</h2>
+        <p class="section-sub">Desde un menú hasta la imagen completa de tu local. Diseño incluido.</p>
+      </div>
+      <div class="servicios-grid">
+
+        <div class="servicio-card destacado">
+          <span class="servicio-badge">⭐ Más pedido</span>
+          <div class="servicio-icon">🖼️</div>
+          <h3>Lonas y banners</h3>
+          <p class="servicio-desc">Interiores y exteriores. Alta resolución, materiales resistentes. Con diseño incluido si no tienes arte.</p>
+          <p class="servicio-desde">Desde $350</p>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">👕</div>
+          <h3>Uniformes con logo</h3>
+          <p class="servicio-desc">Playeras, gorras y más para todo tu equipo. Bordado, DTF o serigrafía según tu tiraje.</p>
+          <p class="servicio-desde">Desde $350 por pieza</p>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">📋</div>
+          <h3>Menús impresos</h3>
+          <p class="servicio-desc">Menús individuales, de mesa o de pared. Diseño a tu medida con los colores de tu negocio.</p>
+          <p class="servicio-desde">Desde $350</p>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">🎨</div>
+          <h3>Vinil decorativo</h3>
+          <p class="servicio-desc">Para aparadores, paredes y cristales. Personaliza el espacio con tu imagen de marca.</p>
+          <p class="servicio-desde">Cotización por proyecto</p>
+        </div>
+
+        <div class="servicio-card">
+          <div class="servicio-icon">⚡</div>
+          <h3>Grabado láser</h3>
+          <p class="servicio-desc">Artículos promocionales, reconocimientos, detalles corporativos con acabado premium.</p>
+          <p class="servicio-desde">Desde $350</p>
+        </div>
+
+        <div class="servicio-card" style="border-color: var(--amarillo); background: #fffbf0;">
+          <span class="servicio-badge">Paquete</span>
+          <div class="servicio-icon">📦</div>
+          <h3>Vestimos tu negocio completo</h3>
+          <p class="servicio-desc">Lona + menú + uniformes en un solo paquete. La opción más completa y con mejor precio por volumen.</p>
+          <p class="servicio-desde" style="color: var(--negro); font-size:.9rem;">Pregunta por precio de paquete →</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CASO DE ÉXITO -->
+  <section id="caso">
+    <div class="container">
+      <div class="caso-grid">
+        <div class="caso-texto">
+          <span class="caso-tag">Caso real</span>
+          <h2 class="section-title">De taquería sin imagen a negocio con marca</h2>
+          <p>Uno de nuestros clientes más fieles llegó con una taquería sin ningún material de imagen: sin lona, sin menú impreso, sin uniformes para su equipo.</p>
+          <p>En una semana tenían todo: lona exterior con su logo, menús plastificados para las mesas y playeras para todo el personal.</p>
+          <ul class="caso-lista">
+            <li>Lona exterior de alta resolución con diseño</li>
+            <li>Menús impresos para 10 mesas</li>
+            <li>12 playeras uniformadas con bordado</li>
+            <li>Resultado: imagen 100% profesional</li>
+          </ul>
+          <a href="https://wa.me/528120978670?text=Hola%2C%20me%20interesa%20el%20paquete%20para%20negocio"
+             class="btn btn-primary" target="_blank" rel="noopener">
+            Quiero algo así para mi negocio →
+          </a>
+        </div>
+        <div class="caso-visual">
+          <p class="caso-visual-title">📦 Paquete Taquería Ejemplo</p>
+          <div class="caso-items">
+            <div class="caso-item">
+              <span class="caso-item-icon">🖼️</span>
+              <div>
+                <p class="caso-item-label">Lona exterior 3×1m</p>
+                <p class="caso-item-desc">Con diseño incluido · Alta resolución</p>
+              </div>
+            </div>
+            <div class="caso-item">
+              <span class="caso-item-icon">📋</span>
+              <div>
+                <p class="caso-item-label">10 menús plastificados</p>
+                <p class="caso-item-desc">Tamaño carta · Doble cara</p>
+              </div>
+            </div>
+            <div class="caso-item">
+              <span class="caso-item-icon">👕</span>
+              <div>
+                <p class="caso-item-label">12 playeras bordadas</p>
+                <p class="caso-item-desc">Logo del negocio · Colores a elegir</p>
+              </div>
+            </div>
+            <div class="caso-item">
+              <span class="caso-item-icon">🎨</span>
+              <div>
+                <p class="caso-item-label">Diseño de todo el paquete</p>
+                <p class="caso-item-desc">Incluido sin costo extra</p>
+              </div>
+            </div>
+          </div>
+          <div class="caso-total">
+            <span>Cotiza el tuyo →</span>
+            <strong>Precio según tu negocio</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso">
+    <div class="container">
+      <div class="header">
+        <p class="section-eyebrow">Cómo trabajamos</p>
+        <h2 class="section-title">Simple y rápido</h2>
+      </div>
+      <div class="proceso-grid">
+        <div class="paso">
+          <div class="paso-num">1</div>
+          <h3>Nos escribes</h3>
+          <p>Cuéntanos qué necesitas — aunque no tengas logo ni idea del diseño, nosotros te guiamos.</p>
+        </div>
+        <div class="paso">
+          <div class="paso-num">2</div>
+          <h3>Te cotizamos</h3>
+          <p>Te enviamos precio y tiempos sin compromiso. Sin letras chiquitas.</p>
+        </div>
+        <div class="paso">
+          <div class="paso-num">3</div>
+          <h3>Apruebas el diseño</h3>
+          <p>Te mandamos 2–3 propuestas de diseño. Hacemos los ajustes que necesites.</p>
+        </div>
+        <div class="paso">
+          <div class="paso-num">4</div>
+          <h3>Producción y entrega</h3>
+          <p>Producimos y entregamos en Monterrey. Pronto envíos a todo México.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta">
+    <div class="container">
+      <p class="section-eyebrow">Sin compromiso</p>
+      <h2>¿Listo para que tu negocio<br><span>se vea profesional?</span></h2>
+      <p>Escríbenos hoy y en menos de 24 horas tienes tu cotización. Diseño incluido.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/528120978670?text=Hola%2C%20quiero%20cotizar%20imagen%20para%20mi%20negocio"
+           class="wa-block" target="_blank" rel="noopener">
+          <span class="wa-icon">💬</span>
+          Cotizar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Se Creativo</strong> — Artículos personalizados · Monterrey, N.L.</p>
+    <p style="margin-top:.4rem;">
+      <a href="https://www.instagram.com/secreativomx" target="_blank" rel="noopener">@secreativomx</a>
+      &nbsp;·&nbsp;
+      <a href="https://wa.me/528120978670" target="_blank" rel="noopener">812 097 8670</a>
+    </p>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/528120978670?text=Hola%2C%20quiero%20cotizar%20imagen%20para%20mi%20negocio"
+     class="whatsapp-float" target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp">
+    💬
+  </a>
+
+</body>
+</html>
