@@ -73,8 +73,58 @@
     }
     .nav-links a:hover { color: var(--naranja); }
 
+    /* Hamburguesa */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .4rem;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform .2s, opacity .2s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Foto preview — tap en móvil */
+    .producto-card.touch-open .foto-preview { transform: translateY(0); }
+
     @media (max-width: 600px) {
-      .nav-links { display: none; }
+      /* Nav */
+      .nav-hamburger { display: flex; }
+      nav { position: relative; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--azul);
+        flex-direction: column;
+        padding: 1rem 1.5rem 1.5rem;
+        gap: 1.1rem;
+        box-shadow: 0 6px 16px rgba(0,0,0,.25);
+        z-index: 99;
+      }
+      .nav-links.open { display: flex; }
+
+      /* Hero */
+      #hero { padding: 3.5rem 0 3rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { text-align: center; width: 100%; }
+
+      /* Secciones */
+      #quienes, #productos, #porque, #cotizacion, #contacto { padding: 3rem 0; }
+      .quienes-grid { grid-template-columns: 1fr; }
+      .productos-grid { grid-template-columns: 1fr; }
+      .producto-card { min-height: 200px; }
+      .contacto-grid { grid-template-columns: 1fr; }
     }
 
     /* ── HERO ── */
@@ -484,7 +534,10 @@
   <nav>
     <div class="container">
       <a href="#hero" class="nav-logo">Hidráulicos <span>Monterrey</span></a>
-      <ul class="nav-links">
+      <button class="nav-hamburger" id="nav-toggle" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#quienes">Nosotros</a></li>
         <li><a href="#productos">Productos</a></li>
         <li><a href="#porque">¿Por qué nosotros?</a></li>
@@ -731,7 +784,6 @@
   <section id="contacto">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">Estamos aquí</p>
         <h2 class="section-title">Contáctanos</h2>
       </div>
       <div class="contacto-grid">
@@ -772,15 +824,7 @@
 
         </div>
 
-        <div class="mapa-wrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.3108309600498!2d-100.3429182252304!3d25.694130677394412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866295e7b22927ff%3A0xe0545ad6a213b774!2sC.%20Miguel%20Barrag%C3%A1n%202907%2C%20Tijerina%2C%2064460%20Monterrey%2C%20N.L.!5e0!3m2!1sen!2smx!4v1775080781342!5m2!1sen!2smx"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Ubicación Monterrey, Nuevo León">
-          </iframe>
-        </div>
+
 
       </div>
     </div>
@@ -798,6 +842,37 @@
   </a>
 
   <script>
+    // Nav hamburguesa
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks  = document.getElementById('nav-links');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        navToggle.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open);
+      });
+      // Cerrar al hacer clic en un link
+      navLinks.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', false);
+        })
+      );
+    }
+
+    // Foto preview — tap en móvil
+    if ('ontouchstart' in window) {
+      document.querySelectorAll('.producto-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const isOpen = card.classList.contains('touch-open');
+          document.querySelectorAll('.producto-card').forEach(c => c.classList.remove('touch-open'));
+          if (!isOpen) card.classList.add('touch-open');
+        });
+      });
+    }
+
+    // Formulario cotización
     const form = document.getElementById('cotizacion-form');
     const success = document.getElementById('form-success');
     if (form) {
