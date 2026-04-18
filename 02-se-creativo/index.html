@@ -5,343 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Se Creativo — Personalizamos lo que imaginas</title>
   <meta name="description" content="Artículos personalizados en Monterrey. Regalos para bebés, playeras de bandas y material para tu negocio. Hecho a tu medida." />
+  <link rel="icon" type="image/png" href="secreativologo.png" />
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://secreativo.mx/" />
+  <meta property="og:title"       content="Se Creativo — Personalizamos lo que imaginas" />
+  <meta property="og:description" content="Artículos personalizados en Monterrey. Regalos para bebés, playeras de bandas y material para tu negocio. Hecho a tu medida." />
+  <meta property="og:image"       content="https://secreativo.mx/secreativologo.png" />
+  <meta property="og:locale"      content="es_MX" />
+  <!-- Twitter / X -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="Se Creativo — Personalizamos lo que imaginas" />
+  <meta name="twitter:description" content="Artículos personalizados en Monterrey. Regalos para bebés, playeras de bandas y material para tu negocio." />
+  <meta name="twitter:image"       content="https://secreativo.mx/secreativologo.png" />
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      color: #1a1a1a;
-      background: #0d0f14;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
+    body { background: #0d0f14; min-height: 100vh; }
 
-    :root {
-      --negro:    #111318;
-      --oscuro:   #1e2028;
-      --amarillo: #f5a623;
-      --naranja:  #e8630a;
-      --gris:     #f5f5f7;
-      --suave:    #6b7280;
-      --blanco:   #ffffff;
-    }
-
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-
-    /* ── NAV ── */
-    nav {
-      background: rgba(13,15,20,.95);
-      backdrop-filter: blur(12px);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    nav .container { display: flex; justify-content: space-between; align-items: center; }
-    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.1; }
-    .nav-logo .logo-main { color: #fff; font-weight: 800; font-size: 1.25rem; letter-spacing: .02em; }
-    .nav-logo .logo-sub  { color: var(--amarillo); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-    .nav-wa {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      background: #25d366;
-      color: #fff;
-      padding: .5rem 1.1rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: .88rem;
-      text-decoration: none;
-      transition: background .15s, transform .15s;
-    }
+    /* nav override: blur en index */
+    nav { background: rgba(13,15,20,.95); backdrop-filter: blur(12px); }
+    .nav-wa { display: flex; align-items: center; gap: .5rem; background: #25d366; color: #fff; padding: .5rem 1.1rem; border-radius: 8px; font-weight: 700; font-size: .88rem; text-decoration: none; transition: background .15s, transform .15s; }
     .nav-wa:hover { background: #1fba59; transform: translateY(-1px); }
 
     /* ── HERO ── */
-    #hero {
-      background: var(--negro);
-      padding: 5rem 0 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: -150px; left: 50%;
-      transform: translateX(-50%);
-      width: 700px; height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,166,35,.1) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: rgba(245,166,35,.12);
-      border: 1px solid rgba(245,166,35,.25);
-      color: var(--amarillo);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: .35rem 1rem;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-    }
-    #hero h1 {
-      font-size: clamp(2.2rem, 6vw, 3.8rem);
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.1;
-      margin-bottom: .75rem;
-      letter-spacing: -.02em;
-    }
+    #hero { background: var(--negro); padding: 5rem 0 4rem; text-align: center; position: relative; overflow: hidden; }
+    #hero::before { content: ''; position: absolute; top: -150px; left: 50%; transform: translateX(-50%); width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(245,166,35,.1) 0%, transparent 65%); pointer-events: none; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: rgba(245,166,35,.12); border: 1px solid rgba(245,166,35,.25); color: var(--amarillo); font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 20px; margin-bottom: 1.5rem; }
+    #hero h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: .75rem; letter-spacing: -.02em; }
     #hero h1 span { color: var(--amarillo); }
-    .hero-tagline {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,.55);
-      margin-bottom: .5rem;
-    }
-    .hero-lineas {
-      font-size: 1rem;
-      color: rgba(255,255,255,.4);
-      letter-spacing: .05em;
-      margin-bottom: 3rem;
-    }
+    .hero-tagline { font-size: 1.1rem; color: rgba(255,255,255,.55); margin-bottom: .5rem; }
+    .hero-lineas { font-size: 1rem; color: rgba(255,255,255,.4); letter-spacing: .05em; margin-bottom: 3rem; }
     .hero-lineas strong { color: rgba(255,255,255,.7); font-weight: 600; }
 
     /* ── CARDS ── */
-    #lineas {
-      background: #0d0f14;
-      padding: 3rem 0 5rem;
-    }
-    .lineas-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-    .linea-card {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      min-height: 420px;
-      border: 1.5px solid rgba(255,255,255,.07);
-      background: var(--oscuro);
-      transition: transform .25s, border-color .25s, box-shadow .25s;
-      cursor: pointer;
-    }
-    .linea-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(0,0,0,.5);
-    }
+    #lineas { background: #0d0f14; padding: 3rem 0 5rem; }
+    .lineas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .linea-card { position: relative; border-radius: 20px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; min-height: 420px; border: 1.5px solid rgba(255,255,255,.07); background: var(--oscuro); transition: transform .25s, border-color .25s, box-shadow .25s; cursor: pointer; }
+    .linea-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
     .linea-card:hover .linea-bg { opacity: 1; }
     .linea-card:hover .linea-arrow { transform: translateX(4px); }
-
-    .linea-bg {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity .3s;
-      pointer-events: none;
-    }
+    .linea-bg { position: absolute; inset: 0; opacity: 0; transition: opacity .3s; pointer-events: none; }
     .card-bebes   .linea-bg { background: radial-gradient(circle at 30% 70%, rgba(255,182,193,.08) 0%, transparent 60%); }
     .card-bandas  .linea-bg { background: radial-gradient(circle at 70% 30%, rgba(180,100,255,.1)  0%, transparent 60%); }
     .card-negocio .linea-bg { background: radial-gradient(circle at 50% 80%, rgba(245,166,35,.1)   0%, transparent 60%); }
-
     .card-bebes   { border-color: rgba(255,182,193,.15); }
     .card-bandas  { border-color: rgba(180,100,255,.15); }
-    .card-negocio { border-color: rgba(245,166,35,.2);   }
-
+    .card-negocio { border-color: rgba(245,166,35,.2); }
     .card-bebes:hover   { border-color: rgba(255,182,193,.5); box-shadow: 0 24px 60px rgba(255,182,193,.12); }
     .card-bandas:hover  { border-color: rgba(180,100,255,.5); box-shadow: 0 24px 60px rgba(180,100,255,.12); }
-    .card-negocio:hover { border-color: rgba(245,166,35,.5);  box-shadow: 0 24px 60px rgba(245,166,35,.15);  }
-
-    .linea-content {
-      position: relative;
-      z-index: 1;
-      padding: 2.25rem 2rem;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .linea-icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      display: block;
-      line-height: 1;
-    }
-
-    .linea-tag {
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: .6rem;
-    }
+    .card-negocio:hover { border-color: rgba(245,166,35,.5);  box-shadow: 0 24px 60px rgba(245,166,35,.15); }
+    .linea-content { position: relative; z-index: 1; padding: 2.25rem 2rem; display: flex; flex-direction: column; flex: 1; }
+    .linea-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; line-height: 1; }
+    .linea-tag { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .6rem; }
     .card-bebes   .linea-tag { color: #ffb6c1; }
     .card-bandas  .linea-tag { color: #c084fc; }
     .card-negocio .linea-tag { color: var(--amarillo); }
-
-    .linea-card h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.2;
-      margin-bottom: .75rem;
-    }
-
-    .linea-desc {
-      font-size: .92rem;
-      color: rgba(255,255,255,.55);
-      line-height: 1.7;
-      flex: 1;
-      margin-bottom: 1.75rem;
-    }
-
-    .linea-productos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .45rem;
-      margin-bottom: 1.75rem;
-    }
-    .producto-chip {
-      font-size: .72rem;
-      font-weight: 600;
-      padding: .25rem .7rem;
-      border-radius: 20px;
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.6);
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .linea-cta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1.25rem;
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-    .linea-cta-text {
-      font-size: .88rem;
-      font-weight: 700;
-      color: #fff;
-    }
-    .linea-arrow {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,.4);
-      transition: transform .2s;
-    }
+    .linea-card h2 { font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: .75rem; }
+    .linea-desc { font-size: .92rem; color: rgba(255,255,255,.55); line-height: 1.7; flex: 1; margin-bottom: 1.75rem; }
+    .linea-productos { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.75rem; }
+    .producto-chip { font-size: .72rem; font-weight: 600; padding: .25rem .7rem; border-radius: 20px; background: rgba(255,255,255,.06); color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.08); }
+    .linea-cta { display: flex; align-items: center; justify-content: space-between; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.08); }
+    .linea-cta-text { font-size: .88rem; font-weight: 700; }
+    .linea-arrow { font-size: 1.1rem; color: rgba(255,255,255,.4); transition: transform .2s; }
     .card-bebes   .linea-cta-text { color: #ffb6c1; }
     .card-bandas  .linea-cta-text { color: #c084fc; }
     .card-negocio .linea-cta-text { color: var(--amarillo); }
 
-    /* ── STRIP DE CONFIANZA ── */
-    #trust {
-      background: var(--negro);
-      border-top: 1px solid rgba(255,255,255,.06);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      padding: 1.6rem 0;
-    }
-    .trust-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: .55rem;
-      font-size: .88rem;
-      color: rgba(255,255,255,.55);
-    }
+    /* ── TRUST STRIP ── */
+    #trust { background: var(--negro); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); padding: 1.6rem 0; }
+    .trust-inner { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: .55rem; font-size: .88rem; color: rgba(255,255,255,.55); }
     .trust-item strong { color: rgba(255,255,255,.85); }
 
-    /* ── CTA WHATSAPP ── */
-    #contacto {
-      background: #0d0f14;
-      padding: 5rem 0;
-      text-align: center;
-    }
-    #contacto h2 {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: .75rem;
-      line-height: 1.2;
-    }
+    /* ── CONTACTO ── */
+    #contacto { background: #0d0f14; padding: 5rem 0; text-align: center; }
+    #contacto h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; color: #fff; margin-bottom: .75rem; line-height: 1.2; }
     #contacto h2 span { color: var(--amarillo); }
-    #contacto p {
-      color: rgba(255,255,255,.5);
-      font-size: 1rem;
-      max-width: 420px;
-      margin: 0 auto 2rem;
-    }
-    .wa-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .75rem;
-      background: #25d366;
-      color: #fff;
-      padding: 1rem 2.25rem;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-decoration: none;
-      transition: background .15s, transform .15s, box-shadow .15s;
-      box-shadow: 0 8px 24px rgba(37,211,102,.25);
-    }
+    #contacto p { color: rgba(255,255,255,.5); font-size: 1rem; max-width: 420px; margin: 0 auto 2rem; }
+    .wa-btn { display: inline-flex; align-items: center; gap: .75rem; background: #25d366; color: #fff; padding: 1rem 2.25rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: background .15s, transform .15s, box-shadow .15s; box-shadow: 0 8px 24px rgba(37,211,102,.25); }
     .wa-btn:hover { background: #1fba59; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,.35); }
     .wa-btn .icon { font-size: 1.3rem; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #080a0d;
-      color: rgba(255,255,255,.35);
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: .83rem;
-    }
-    footer strong { color: rgba(255,255,255,.7); }
-    footer a { color: var(--amarillo); text-decoration: none; }
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: .6rem;
-      flex-wrap: wrap;
-    }
-
-    /* ── WhatsApp flotante ── */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      width: 58px; height: 58px;
-      background: #25d366;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.7rem;
-      box-shadow: 0 4px 20px rgba(37,211,102,.4);
-      text-decoration: none;
-      z-index: 200;
-      transition: transform .2s;
-    }
-    .whatsapp-float:hover { transform: scale(1.1); }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .lineas-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       .linea-card { min-height: 300px; }
     }
-
     @media (max-width: 600px) {
       #hero { padding: 3.5rem 0 3rem; }
       #lineas { padding: 2rem 0 4rem; }
@@ -356,8 +104,11 @@
   <nav>
     <div class="container">
       <a href="#" class="nav-logo">
-        <span class="logo-main">Se Creativo</span>
-        <span class="logo-sub">Monterrey · @secreativomx</span>
+        <img src="secreativologo.png" alt="Se Creativo logo" />
+        <div>
+          <span class="logo-main">Se Creativo</span>
+          <span class="logo-sub">Monterrey · @secreativomx</span>
+        </div>
       </a>
       <a href="https://wa.me/528120978670?text=Hola%2C%20me%20interesa%20algo%20personalizado"
          class="nav-wa" target="_blank" rel="noopener">
